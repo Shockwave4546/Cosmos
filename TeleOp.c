@@ -39,10 +39,10 @@
 
 void initializeRobot()
 {
-  // Place code here to sinitialize servos to starting positions.
-  // Sensors are automatically configured and setup by ROBOTC. They may need a brief time to stabilize.
+	// Place code here to sinitialize servos to starting positions.
+	// Sensors are automatically configured and setup by ROBOTC. They may need a brief time to stabilize.
 
-  return;
+	return;
 }
 
 
@@ -75,24 +75,54 @@ void initializeRobot()
 
 task main()
 {
-  initializeRobot();
+	initializeRobot();
 
-  waitForStart();   // wait for start of tele-op phase
+	waitForStart();   // wait for start of tele-op phase
+	int posthreshold = 10;
+	int negthreshold = -10;
 
-  while (true)
-  {
-	  ///////////////////////////////////////////////////////////
-	  ///////////////////////////////////////////////////////////
-	  ////                                                   ////
-	  ////      Add your robot specific tele-op code here.   ////
-	  ////                                                   ////
-	  ///////////////////////////////////////////////////////////
-	  ///////////////////////////////////////////////////////////
 
-    // Insert code to have servos and motors respond to joystick and button values.
+	while (true)
+	{
+		getJoystickSettings(joystick);
+		motor[FLMotor] = 100;
+		if(abs(joystick.joy1_y1) > posthreshold)
+		{
+			motor[BLMotor] = joystick.joy1_y1;
+			motor[FLMotor] = joystick.joy1_y1;
+		}
+		else if(abs(joystick.joy1_y1) < negthreshold)
+		{
+			motor[BLMotor] = joystick.joy1_y1;
+			motor[FLMotor] = joystick.joy1_y1;
+		}
+		else
+		{
+			setMultipleMotors(0,BLMotor,FLMotor);
+		}
 
-    // Look in the ROBOTC samples folder for programs that may be similar to what you want to perform.
-    // You may be able to find "snippets" of code that are similar to the functions that you want to
-    // perform.
-  }
+		if(abs(joystick.joy1_y2) > posthreshold)
+		{
+			motor[BRMotor] = joystick.joy1_y2;
+			motor[FRMotor] = joystick.joy1_y2;
+		}
+		else if(abs(joystick.joy1_y2) < negthreshold)
+		{
+			motor[BRMotor] = joystick.joy1_y2;
+			motor[FRMotor] = joystick.joy1_y2;
+		}
+		else
+		{
+			setMultipleMotors(0,BRMotor,FRMotor);
+		}
+
+
+
+
+		// Insert code to have servos and motors respond to joystick and button values.
+
+		// Look in the ROBOTC samples folder for programs that may be similar to what you want to perform.
+		// You may be able to find "snippets" of code that are similar to the functions that you want to
+		// perform.
+	}
 }
