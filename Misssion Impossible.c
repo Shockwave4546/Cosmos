@@ -1,4 +1,5 @@
-void MissionImpossible()
+
+task main()
 {
 	//        100 = Tempo
 	//          6 = Default octave
@@ -66,9 +67,4 @@ void MissionImpossible()
 	playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
 	playTone(  932,   14); wait1Msec( 150);  // Note(A#5, Duration(16th))
 	playTone(  784,   14); wait1Msec( 150);  // Note(C, Duration(16th))
-	return;
-}
-task main()
-{
-	MissionImpossible();
 }
