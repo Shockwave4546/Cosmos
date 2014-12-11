@@ -143,68 +143,41 @@ void MissionImpossible()
 //
 // At the end of the tele-op period, the FMS will autonmatically abort (stop) execution of the program.
 //
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-
-task main()
-{
-	initializeRobot();
+////////////////////////////////////////////////////////////////////////////////////////////////////
+	//initializeRobot();
 	//MissionImpossible();
 
-	waitForStart();   // wait for start of tele-op phase
+	//waitForStart();
+task main()
+{
+  // wait for start of tele-op phase
 	int posthreshold = 10;
 	int negthreshold = -10;
 
 	while(1 == 1){
-		motor[FLMotor] = 63;
 
-		while (true)
+		getJoystickSettings(joystick);
+
+		while(joy1Btn(01) == 01)                  // If Joy1-Button1 is pressed:
 		{
-			getJoystickSettings(joystick);
-
-			motor[BLMotor] = 64;
-
-			if(joy1Btn(1) == 1)
-			{
-				MissionImpossible();
-			}
-			if(abs(joystick.joy1_y1) > posthreshold)
-			{
-				motor[BLMotor] = joystick.joy1_y1;
-				motor[FLMotor] = joystick.joy1_y1;
-			}
-			else if(abs(joystick.joy1_y1) < negthreshold)
-			{
-				motor[BLMotor] = joystick.joy1_y1;
-				motor[FLMotor] = joystick.joy1_y1;
-			}
-			else
-			{
-				setMultipleMotors(0,BLMotor,FLMotor);
-			}
-
-			if(abs(joystick.joy1_y2) > posthreshold)
-			{
-				motor[BRMotor] = joystick.joy1_y2;
-				motor[FRMotor] = joystick.joy1_y2;
-			}
-			else if(abs(joystick.joy1_y2) < negthreshold)
-			{
-				motor[BRMotor] = joystick.joy1_y2;
-				motor[FRMotor] = joystick.joy1_y2;
-			}
-			else
-			{
-				setMultipleMotors(0,BRMotor,FRMotor);
-			}
-
-
-
-
-			// Insert code to have servos and motors respond to joystick and button values.
-
-			// Look in the ROBOTC samples folder for programs that may be similar to what you want to perform.
-			// You may be able to find "snippets" of code that are similar to the functions that you want to
-			// perform.
+			motor[FLMotor] = 100;              // Turn Motor A On at full power
 		}
+	/*	else                            // If Joy1-Button1 is NOT pressed:
+		{
+			motor[FLMotor] = 0;                 // Turn Motor A Off
+		}
+*/
+
+		motor[FLMotor] = joystick.joy1_y1;
+		motor[BLMotor] = joystick.joy1_y1;
+		motor[FRMotor] = joystick.joy1_y2;
+		motor[BRMotor] = joystick.joy1_y2;
+
+		// Insert code to have servos and motors respond to joystick and button values.
+
+		// Look in the ROBOTC samples folder for programs that may be similar to what you want to perform.
+		// You may be able to find "snippets" of code that are similar to the functions that you want to
+		// perform.
+		wait(.01);
 	}
 }
