@@ -39,80 +39,80 @@
 
 /*void initializeRobot()
 {
-	// Place code here to sinitialize servos to starting positions.
-	// Sensors are automatically configured and setup by ROBOTC. They may need a brief time to stabilize.
+// Place code here to sinitialize servos to starting positions.
+// Sensors are automatically configured and setup by ROBOTC. They may need a brief time to stabilize.
 
-	return;
+return;
 }
 void MissionImpossible()
 {
-	//        100 = Tempo
-	//          6 = Default octave
-	//    Quarter = Default note length
-	//        10% = Break between notes
-	//
-	playTone(  880,    7); wait1Msec(  75);  // Note(D, Duration(32th))
-	playTone(  933,    7); wait1Msec(  75);  // Note(D#, Duration(32th))
-	playTone(  880,    7); wait1Msec(  75);  // Note(D, Duration(32th))
-	playTone(  933,    7); wait1Msec(  75);  // Note(D#, Duration(32th))
-	playTone(  880,    7); wait1Msec(  75);  // Note(D, Duration(32th))
-	playTone(  933,    7); wait1Msec(  75);  // Note(D#, Duration(32th))
-	playTone(  880,    7); wait1Msec(  75);  // Note(D, Duration(32th))
-	playTone(  933,    7); wait1Msec(  75);  // Note(D#, Duration(32th))
-	playTone(  880,    7); wait1Msec(  75);  // Note(D, Duration(32th))
-	playTone(  880,    7); wait1Msec(  75);  // Note(D, Duration(32th))
-	playTone(  933,    7); wait1Msec(  75);  // Note(D#, Duration(32th))
-	playTone(  988,    7); wait1Msec(  75);  // Note(E, Duration(32th))
-	playTone( 1047,    7); wait1Msec(  75);  // Note(F, Duration(32th))
-	playTone( 1109,    7); wait1Msec(  75);  // Note(F#, Duration(32th))
-	playTone( 1175,    7); wait1Msec(  75);  // Note(G, Duration(32th))
-	playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
-	playTone(    0,   27); wait1Msec( 300);  // Note(Rest, Duration(Eighth))
-	playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
-	playTone(    0,   27); wait1Msec( 300);  // Note(Rest, Duration(Eighth))
-	playTone( 1398,   14); wait1Msec( 150);  // Note(A#, Duration(16th))
-	playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
-	playTone(  784,   14); wait1Msec( 150);  // Note(C, Duration(16th))
-	playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
-	playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
-	playTone(    0,   27); wait1Msec( 300);  // Note(Rest, Duration(Eighth))
-	playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
-	playTone(    0,   27); wait1Msec( 300);  // Note(Rest, Duration(Eighth))
-	playTone( 1047,   14); wait1Msec( 150);  // Note(F, Duration(16th))
-	playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
-	playTone( 1109,   14); wait1Msec( 150);  // Note(F#, Duration(16th))
-	playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
-	playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
-	playTone(    0,   27); wait1Msec( 300);  // Note(Rest, Duration(Eighth))
-	playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
-	playTone(    0,   27); wait1Msec( 300);  // Note(Rest, Duration(Eighth))
-	playTone( 1398,   14); wait1Msec( 150);  // Note(A#, Duration(16th))
-	playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
-	playTone(  784,   14); wait1Msec( 150);  // Note(C, Duration(16th))
-	playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
-	playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
-	playTone(    0,   27); wait1Msec( 300);  // Note(Rest, Duration(Eighth))
-	playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
-	playTone(    0,   27); wait1Msec( 300);  // Note(Rest, Duration(Eighth))
-	playTone( 1047,   14); wait1Msec( 150);  // Note(F, Duration(16th))
-	playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
-	playTone( 1109,   14); wait1Msec( 150);  // Note(F#, Duration(16th))
-	playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
-	playTone( 1398,   14); wait1Msec( 150);  // Note(A#, Duration(16th))
-	playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
-	playTone(  880,  108); wait1Msec(1200);  // Note(D, Duration(Half))
-	playTone(    0,    7); wait1Msec(  75);  // Note(Rest, Duration(32th))
-	playTone( 1398,   14); wait1Msec( 150);  // Note(A#, Duration(16th))
-	playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
-	playTone(  831,  108); wait1Msec(1200);  // Note(C#, Duration(Half))
-	playTone(    0,    7); wait1Msec(  75);  // Note(Rest, Duration(32th))
-	playTone( 1398,   14); wait1Msec( 150);  // Note(A#, Duration(16th))
-	playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
-	playTone(  784,  108); wait1Msec(1200);  // Note(C, Duration(Half))
-	playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
-	playTone(  932,   14); wait1Msec( 150);  // Note(A#5, Duration(16th))
-	playTone(  784,   14); wait1Msec( 150);  // Note(C, Duration(16th))
-	return;
+//        100 = Tempo
+//          6 = Default octave
+//    Quarter = Default note length
+//        10% = Break between notes
+//
+playTone(  880,    7); wait1Msec(  75);  // Note(D, Duration(32th))
+playTone(  933,    7); wait1Msec(  75);  // Note(D#, Duration(32th))
+playTone(  880,    7); wait1Msec(  75);  // Note(D, Duration(32th))
+playTone(  933,    7); wait1Msec(  75);  // Note(D#, Duration(32th))
+playTone(  880,    7); wait1Msec(  75);  // Note(D, Duration(32th))
+playTone(  933,    7); wait1Msec(  75);  // Note(D#, Duration(32th))
+playTone(  880,    7); wait1Msec(  75);  // Note(D, Duration(32th))
+playTone(  933,    7); wait1Msec(  75);  // Note(D#, Duration(32th))
+playTone(  880,    7); wait1Msec(  75);  // Note(D, Duration(32th))
+playTone(  880,    7); wait1Msec(  75);  // Note(D, Duration(32th))
+playTone(  933,    7); wait1Msec(  75);  // Note(D#, Duration(32th))
+playTone(  988,    7); wait1Msec(  75);  // Note(E, Duration(32th))
+playTone( 1047,    7); wait1Msec(  75);  // Note(F, Duration(32th))
+playTone( 1109,    7); wait1Msec(  75);  // Note(F#, Duration(32th))
+playTone( 1175,    7); wait1Msec(  75);  // Note(G, Duration(32th))
+playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
+playTone(    0,   27); wait1Msec( 300);  // Note(Rest, Duration(Eighth))
+playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
+playTone(    0,   27); wait1Msec( 300);  // Note(Rest, Duration(Eighth))
+playTone( 1398,   14); wait1Msec( 150);  // Note(A#, Duration(16th))
+playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
+playTone(  784,   14); wait1Msec( 150);  // Note(C, Duration(16th))
+playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
+playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
+playTone(    0,   27); wait1Msec( 300);  // Note(Rest, Duration(Eighth))
+playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
+playTone(    0,   27); wait1Msec( 300);  // Note(Rest, Duration(Eighth))
+playTone( 1047,   14); wait1Msec( 150);  // Note(F, Duration(16th))
+playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
+playTone( 1109,   14); wait1Msec( 150);  // Note(F#, Duration(16th))
+playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
+playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
+playTone(    0,   27); wait1Msec( 300);  // Note(Rest, Duration(Eighth))
+playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
+playTone(    0,   27); wait1Msec( 300);  // Note(Rest, Duration(Eighth))
+playTone( 1398,   14); wait1Msec( 150);  // Note(A#, Duration(16th))
+playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
+playTone(  784,   14); wait1Msec( 150);  // Note(C, Duration(16th))
+playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
+playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
+playTone(    0,   27); wait1Msec( 300);  // Note(Rest, Duration(Eighth))
+playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
+playTone(    0,   27); wait1Msec( 300);  // Note(Rest, Duration(Eighth))
+playTone( 1047,   14); wait1Msec( 150);  // Note(F, Duration(16th))
+playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
+playTone( 1109,   14); wait1Msec( 150);  // Note(F#, Duration(16th))
+playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
+playTone( 1398,   14); wait1Msec( 150);  // Note(A#, Duration(16th))
+playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
+playTone(  880,  108); wait1Msec(1200);  // Note(D, Duration(Half))
+playTone(    0,    7); wait1Msec(  75);  // Note(Rest, Duration(32th))
+playTone( 1398,   14); wait1Msec( 150);  // Note(A#, Duration(16th))
+playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
+playTone(  831,  108); wait1Msec(1200);  // Note(C#, Duration(Half))
+playTone(    0,    7); wait1Msec(  75);  // Note(Rest, Duration(32th))
+playTone( 1398,   14); wait1Msec( 150);  // Note(A#, Duration(16th))
+playTone( 1175,   14); wait1Msec( 150);  // Note(G, Duration(16th))
+playTone(  784,  108); wait1Msec(1200);  // Note(C, Duration(Half))
+playTone(    0,   14); wait1Msec( 150);  // Note(Rest, Duration(16th))
+playTone(  932,   14); wait1Msec( 150);  // Note(A#5, Duration(16th))
+playTone(  784,   14); wait1Msec( 150);  // Note(C, Duration(16th))
+return;
 }*/
 
 
@@ -144,31 +144,24 @@ void MissionImpossible()
 // At the end of the tele-op period, the FMS will autonmatically abort (stop) execution of the program.
 //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-	//initializeRobot();
-	//MissionImpossible();
+//initializeRobot();
+//MissionImpossible();
 
-	//waitForStart();
 task main()
 {
-//  wait for start of tele-op phase
-//	int posthreshold = 10;
-//	int negthreshold = -10;
-
+	//  wait for start of tele-op phase
+	//	int posthreshold = 10;
+	//	int negthreshold = -10;
+	waitForStart();
 	while(1 == 1){
-		playTone(880, 100);
 		getJoystickSettings(joystick);
 
 		while(joy1Btn(01) == 1)                  // If Joy1-Button1 is pressed:
 		{
 			motor[FLMotor] = 100;              // Turn Motor A On at full power
-			playTone(440, 100);
 
 		}
-	/*	else                            // If Joy1-Button1 is NOT pressed:
-		{
-			motor[FLMotor] = 0;                 // Turn Motor A Off
-		}
-*/
+
 
 		motor[FLMotor] = joystick.joy1_y1;
 		motor[BLMotor] = joystick.joy1_y1;

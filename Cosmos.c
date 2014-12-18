@@ -24,7 +24,7 @@ task main()
 		motor[BLMotor] = joystick.joy1_y1;
 		motor[FRMotor] = joystick.joy1_y2;
 		motor[BRMotor] = joystick.joy1_y2;
-		if(joystick.joy1_TopHat == 0
+		if(joystick.joy1_TopHat == 0)
 		{
 			motor[Intake] = 64; //Intake
 		}
@@ -32,7 +32,7 @@ task main()
 		{
 			motor[Intake] = 0;
 		}
-		if(joystick.joy1_TopHat == 4
+		if(joystick.joy1_TopHat == 4)
 		{
 			motor[Intake] = -64; //Outtake
 		}
