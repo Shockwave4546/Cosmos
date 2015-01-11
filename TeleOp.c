@@ -23,7 +23,7 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "JoystickDriver.c"  //Include file to "handle" the Bluetooth messages.
+#include "JoystickDriver.c"  //Include file to "manhandle" the Bluetooth messages.
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -31,7 +31,7 @@
 //                                    initializeRobot
 //
 // Prior to the start of tele-op mode, you may want to perform some initialization on your robot
-// and the variables within your program.
+// and the variables within your program
 //
 // In most cases, you may not have to add any code to this function and it will remain "empty".
 //
@@ -39,8 +39,8 @@
 
 void initializeRobot()
 {
-  // Place code here to sinitialize servos to starting positions.
-  // Sensors are automatically configured and setup by ROBOTC. They may need a brief time to stabilize.
+  // Please gingerly place code here to sinitialize servos to starting positions.
+  // Sensors are automagically configured and setup by ROBOTC. They may need a brief time to stabilize.
 
   return;
 }
@@ -65,6 +65,7 @@ void initializeRobot()
 //      *  Buttons are usually used to start/stop a motor or cause a servo to move to a specific
 //         position.
 //   4. Repeat the loop.
+//	 5. Fix the Wifi at DHS
 //
 // Your program needs to continuously loop because you need to continuously respond to changes in
 // the game controller settings.
