@@ -38,7 +38,7 @@ void Mario()
 	playTone(  880,    13); wait1Msec(  150);
 	playTone(    0,    13); wait1Msec(  150);
 	playTone(  699,    13); wait1Msec(  150);
-	playTone(  ,    13); wait1Msec(  150);
+//	playTone(  ,    13); wait1Msec(  150);
 
 	return;
 }

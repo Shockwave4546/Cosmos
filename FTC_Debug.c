@@ -1,11 +1,14 @@
 #pragma config(Hubs,  S1, HTServo,  HTMotor,  HTMotor,  none)
 #pragma config(Sensor, S1,     ,               sensorI2CMuxController)
-#pragma config(Motor,  mtr_S1_C2_1,     FLMotor,       tmotorTetrix, openLoop)
-#pragma config(Motor,  mtr_S1_C2_2,     FRMotor,       tmotorTetrix, openLoop)
-#pragma config(Motor,  mtr_S1_C3_1,     BLMotor,       tmotorTetrix, openLoop)
-#pragma config(Motor,  mtr_S1_C3_2,     BRMotor,       tmotorTetrix, openLoop)
+#pragma config(Sensor, S2,     touch,          sensorTouch)
+#pragma config(Sensor, S3,     light,          sensorLightActive)
+#pragma config(Sensor, S4,     sonar,          sensorSONAR)
+#pragma config(Motor,  mtr_S1_C2_1,     m1,            tmotorTetrix, openLoop, encoder)
+#pragma config(Motor,  mtr_S1_C2_2,     m2,            tmotorTetrix, openLoop, reversed, encoder)
+#pragma config(Motor,  mtr_S1_C3_1,     m3,            tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S1_C3_2,     m4,            tmotorTetrix, openLoop)
 #pragma config(Servo,  srvo_S1_C1_1,    servo1,               tServoStandard)
-#pragma config(Servo,  srvo_S1_C1_2,    servo2,               tServoStandard)
+#pragma config(Servo,  srvo_S1_C1_2,    servo2,               tServoNone)
 #pragma config(Servo,  srvo_S1_C1_3,    servo3,               tServoNone)
 #pragma config(Servo,  srvo_S1_C1_4,    servo4,               tServoNone)
 #pragma config(Servo,  srvo_S1_C1_5,    servo5,               tServoNone)
@@ -23,7 +26,7 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "JoystickDriver.c"  //Include file to "manhandle" the Bluetooth messages.
+#include "JoystickDriver.c"  //Include file to "handle" the Bluetooth messages.
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -31,7 +34,7 @@
 //                                    initializeRobot
 //
 // Prior to the start of tele-op mode, you may want to perform some initialization on your robot
-// and the variables within your program
+// and the variables within your program.
 //
 // In most cases, you may not have to add any code to this function and it will remain "empty".
 //
@@ -39,8 +42,8 @@
 
 void initializeRobot()
 {
-  // Please gingerly place code here to sinitialize servos to starting positions.
-  // Sensors are automagically configured and setup by ROBOTC. They may need a brief time to stabilize.
+  // Place code here to sinitialize servos to starting positions.
+  // Sensors are automatically configured and setup by ROBOTC. They may need a brief time to stabilize.
 
   return;
 }
@@ -65,7 +68,6 @@ void initializeRobot()
 //      *  Buttons are usually used to start/stop a motor or cause a servo to move to a specific
 //         position.
 //   4. Repeat the loop.
-//	 5. Fix the Wifi at DHS
 //
 // Your program needs to continuously loop because you need to continuously respond to changes in
 // the game controller settings.
@@ -78,14 +80,28 @@ task main()
 {
   initializeRobot();
 
-  //waitForStart();   // wait for start of tele-op phase
+  waitForStart();   // wait for start of tele-op phase
 
-  while(true)
+  int x = 15;
+
+  while (true)
   {
-  	getJoystickSettings(joystick);
-	  servo[servo2] = joystick.joy1_y1;
-	  motor[BLMotor] = joystick.joy1_y1;
-	  motor[FRMotor] = joystick.joy1_y2;
-	  motor[BRMotor] = joystick.joy1_y2;
+	  ///////////////////////////////////////////////////////////
+	  ///////////////////////////////////////////////////////////
+	  ////                                                   ////b
+	  ////      Add your robot specific tele-op code here.   ////
+	  ////                                                   ////
+	  ///////////////////////////////////////////////////////////
+	  ///////////////////////////////////////////////////////////
+
+    // Insert code to have servos and motors respond to joystick and button values.
+
+    // Look in the ROBOTC samples folder for programs that may be similar to what you want to perform.
+    // You may be able to find "snippets" of code that are similar to the functions that you want to
+    // perform.
+	getJoystickSettings(joystick);
+  nxtDisplayTextLine(2, "%d", joystick.joy1_x1);
+  servo[servo1] = joystick.joy1_x1;
+
   }
 }
