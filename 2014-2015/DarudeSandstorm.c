@@ -1,3 +1,4 @@
+#pragma systemFile
 
 void DarudeSandstorm()
 {
@@ -114,13 +115,4 @@ void DarudeSandstorm()
 	playTone(  440,    10); wait1Msec(  111);
 	playTone(  440,    10); wait1Msec(  111);
 	return;
-}
-
-task main()
-{
-	waitForStart();
-	while(1 == 1)
-	{
-		DarudeSandstorm();
-	}
 }
