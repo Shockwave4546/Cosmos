@@ -7,11 +7,11 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by Will Marchesi on 10/22/2015.
  */
-public class TankOpMode extends OpMode{
+public class TestOp extends OpMode{
 
 
 
-    public TankOpMode() {
+    public TestOp() {
 
     }
 

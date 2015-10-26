@@ -57,7 +57,7 @@ public class FtcOpModeRegister implements OpModeRegister {
 
     manager.register("NullOp", NullOp.class);
     manager.register("OmniTeleOp", OmniTeleOp.class);
-    manager.register("TankOpMode", OmniTeleOp.class);
+    manager.register("TestOp", TestOp.class);
 
     /*
      * Uncomment any of the following lines if you want to register an op mode.
