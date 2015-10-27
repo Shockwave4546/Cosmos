@@ -41,6 +41,11 @@ public class OmniTeleOp extends OpMode{
 
         driverLeftStick = (float)scaleInput(driverLeftStick);
         driverRightStick =  (float)scaleInput(driverRightStick);
+
+        motorFrontRight.setPower(driverRightStick);
+        motorFrontLeft.setPower(driverRightStick);
+        motorBackRight.setPower(driverRightStick);
+        motorBackLeft.setPower(driverRightStick);
     }
 
     @Override
