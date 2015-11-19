@@ -5,34 +5,25 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.Range;
 
 /**
- * Created by Will Marchesi on 11/19/2015.
+ * Created by Will Marchesi on 10/22/2015.
  */
-public class OmniTeleOp extends OpMode{
+public class TestOp extends OpMode{
 
-    DcMotor motorFrontLeft;
-    DcMotor motorFrontRight;
-    DcMotor motorBackLeft;
-    DcMotor motorBackRight;
 
-    public OmniTeleOp() {
+
+    public TestOp() {
 
     }
 
     @Override
     public void init() {
 
-        motorFrontLeft = hardwareMap.dcMotor.get("motorFrontLeft");
-        motorFrontRight = hardwareMap.dcMotor.get("motorFrontRight");
-        motorBackLeft = hardwareMap.dcMotor.get("motorBackLeft");
-        motorBackRight = hardwareMap.dcMotor.get("motorBackRight");
 
-        telemetry.addData("Text", "*** Robot Data***");
 
     }
 
     @Override
     public void loop() {
-
         float leftY = -gamepad1.left_stick_y;
         float leftX = gamepad1.left_stick_x;
         float rightY = -gamepad1.right_stick_y;
@@ -48,17 +39,11 @@ public class OmniTeleOp extends OpMode{
         rightY =  (float)scaleInput(rightY);
         rightX =  (float)scaleInput(rightX);
 
-        motorFrontRight.setPower(rightY);
-        motorFrontLeft.setPower(-leftY);
-        motorBackRight.setPower(rightY);
-        motorBackLeft.setPower(-leftY);
-
         telemetry.addData("Text", "*** Robot Data ***");
         telemetry.addData("leftX", "LeftX" + leftX);
         telemetry.addData("leftY", "LeftY" + leftY);
         telemetry.addData("rightX", "RightX" + rightX);
         telemetry.addData("rightY", "RightY" + rightY);
-
     }
 
     @Override
@@ -94,4 +79,5 @@ public class OmniTeleOp extends OpMode{
         // return scaled value.
         return dScale;
     }
+
 }
